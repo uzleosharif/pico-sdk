@@ -23,6 +23,7 @@ add_executable(pioasm
         gen/lexer.cpp
         gen/parser.cpp
 )
+target_compile_definitions(pioasm PRIVATE _GTHREAD_USE_COND_INIT_FUNC)
 
 target_sources(pioasm PRIVATE c_sdk_output.cpp)
 target_sources(pioasm PRIVATE python_output.cpp)
