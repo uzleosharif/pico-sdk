@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  pico2:
+    image: pico2:25.10
+    user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /stuff/work/pico-sdk
+    environment:
+      USER: uzleo
+      HOME: /home/uzleo
+    entrypoint: ["/usr/bin/env", "fish"]
+    volumes:
+      - /stuff/work:/stuff/work
+      - /stuff/tools:/stuff/tools
+      - /home/uzleo:/home/uzleo
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    stdin_open: true
+    tty: true
