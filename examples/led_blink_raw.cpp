@@ -32,6 +32,9 @@ void busy_delay(uint32_t cycles) {
 
 } // namespace
 
+// Provide a dummy _fini so newlib's cleanup hook has a target.
+extern "C" void _fini() {}
+
 auto main() -> int {
   init_led_pin();
 
