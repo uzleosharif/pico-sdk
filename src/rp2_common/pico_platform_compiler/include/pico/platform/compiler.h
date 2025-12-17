@@ -27,6 +27,11 @@
 #else
 #define PICO_C_COMPILER_IS_GNU 1
 #endif
+/* Some libc variants (e.g. picolibc/LLVM embedded toolchain) don't provide
+ * __printflike; fall back to the usual GCC-style format attribute. */
+#ifndef __printflike
+#define __printflike(a, b) __attribute__((__format__(printf, a, b)))
+#endif
 #elif defined __ICCARM__
 #ifndef __aligned
 #define __aligned(x)	__attribute__((__aligned__(x)))
