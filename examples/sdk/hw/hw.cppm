@@ -6,13 +6,13 @@ module;
 #include "hardware/structs/sio.h"
 #include "pico/platform.h"
 
-#include <cstdint>
-
 export module pico.hw;
+
+import std;
 
 namespace pico::hw {
 
-export auto InitLedPin() -> void;
+export auto InitializeLedPin() -> void;
 export auto BusyDelay(std::uint32_t cycles) -> void;
 export auto ToggleLed() -> void;
 
@@ -25,7 +25,7 @@ constexpr uint32_t LED_MASK = 1u << LED_PIN;
 
 namespace pico::hw {
 
-auto InitLedPin() -> void {
+auto InitializeLedPin() -> void {
   // Configure the pad for push-pull output: 4 mA drive, Schmitt enabled, no
   // pulls.
   padsbank0_hw->io[LED_PIN] =

@@ -8,7 +8,7 @@ extern "C" void _fini() {}
 
 auto main() -> int {
 
-  pico::hw::InitLedPin();
+  pico::hw::InitializeLedPin();
 
   while (true) {
     pico::hw::ToggleLed();
