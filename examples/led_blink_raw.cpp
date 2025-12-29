@@ -3,7 +3,6 @@
 import pico.hw;
 
 auto main() -> int {
-
   pico::hw::InitializeLedPin();
 
   while (true) {
