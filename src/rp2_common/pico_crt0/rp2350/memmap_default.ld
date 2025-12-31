@@ -77,24 +77,26 @@ SECTIONS
 
         . = ALIGN(4);
         /* preinit data */
-        PROVIDE_HIDDEN (__preinit_array_start = .);
+        PROVIDE (__bothinit_array_start = .);
+        PROVIDE (__preinit_array_start = .);
         KEEP(*(SORT(.preinit_array.*)))
         KEEP(*(.preinit_array))
-        PROVIDE_HIDDEN (__preinit_array_end = .);
+        PROVIDE (__preinit_array_end = .);
 
         . = ALIGN(4);
         /* init data */
-        PROVIDE_HIDDEN (__init_array_start = .);
+        PROVIDE (__init_array_start = .);
         KEEP(*(SORT(.init_array.*)))
         KEEP(*(.init_array))
-        PROVIDE_HIDDEN (__init_array_end = .);
+        PROVIDE (__init_array_end = .);
+        PROVIDE (__bothinit_array_end = .);
 
         . = ALIGN(4);
         /* finit data */
-        PROVIDE_HIDDEN (__fini_array_start = .);
+        PROVIDE (__fini_array_start = .);
         *(SORT(.fini_array.*))
         *(.fini_array)
-        PROVIDE_HIDDEN (__fini_array_end = .);
+        PROVIDE (__fini_array_end = .);
 
         *(.eh_frame*)
         . = ALIGN(4);
@@ -299,4 +301,3 @@ SECTIONS
 
     /* todo assert on extra code */
 }
-
