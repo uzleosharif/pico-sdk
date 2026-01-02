@@ -1,6 +1,10 @@
 if (NOT TARGET pico_clib_interface)
     pico_add_library(pico_clib_interface)
 
+    target_sources(pico_clib_interface INTERFACE
+            ${CMAKE_CURRENT_LIST_DIR}/fini_stub.c
+    )
+
     # ---- newlib ----
     pico_add_library(pico_newlib_interface)
 
