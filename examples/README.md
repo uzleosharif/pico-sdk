@@ -9,7 +9,7 @@ cmake -G Ninja -S examples -B build -DPICO_BOARD=pico2 \
   -DPICO_COMPILER_SYSROOT=/stuff/tools/llvm/ATfE-21.1.1/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp_exn_rtti_unaligned_size \
   -DPICO_NO_PICOTOOL=1 \
   -DCMAKE_TRY_COMPILE_PLATFORM_VARIABLES="PICO_COMPILER_SYSROOT;PICO_CLANG_RUNTIMES;PICO_CLIB"  \
-  -DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES=/stuff/tools/llvm/ATfE-21.1.1/lib/clang-runtimes/arm-none-eabi/include/ \
+  -DCMAKE_C_STANDARD_INCLUDE_DIRECTORIES="/stuff/tools/llvm/ATfE-21.1.1/lib/clang-runtimes/arm-none-eabi/include/" \
   -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES="/stuff/tools/llvm/ATfE-21.1.1/lib/clang-runtimes/arm-none-eabi/include/c++/v1/;/stuff/tools/llvm/ATfE-21.1.1/lib/clang-runtimes/arm-none-eabi/include/"
 
 cmake --build build

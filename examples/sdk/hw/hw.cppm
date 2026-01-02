@@ -5,6 +5,7 @@ module;
 #include "hardware/structs/padsbank0.h"
 #include "hardware/structs/sio.h"
 #include "pico/platform.h"
+#include "pico/stdio.h"
 
 export module pico.hw;
 
@@ -12,6 +13,7 @@ import std;
 
 namespace pico::hw {
 
+export auto InitializeBoard() -> void;
 export auto InitializeLedPin() -> void;
 export auto BusyDelay(std::uint32_t cycles) -> void;
 export auto ToggleLed() -> void;
@@ -38,6 +40,10 @@ consteval auto GetLedMask() -> T {
 }  // namespace
 
 namespace pico::hw {
+
+auto InitializeBoard() -> void {
+  stdio_init_all();
+}
 
 auto InitializeLedPin() -> void {
   // Configure the pad for push-pull output: 4 mA drive, Schmitt enabled, no

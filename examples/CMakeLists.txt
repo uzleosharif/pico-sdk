@@ -31,8 +31,10 @@ target_compile_options(led_blink PRIVATE
   $<$<COMPILE_LANG_AND_ID:C,Clang,AppleClang>:-Weverything -Wno-c++98-compat>
   $<$<COMPILE_LANG_AND_ID:CXX,Clang,AppleClang>:-Weverything -Wno-c++98-compat>
 )
-target_link_libraries(led_blink pico_runtime)
+target_link_libraries(led_blink pico_stdlib)
 pico_set_printf_implementation(led_blink none)
+pico_enable_stdio_usb(led_blink 1)
+pico_enable_stdio_uart(led_blink 0)
 
 if (PICO_CLIB STREQUAL "llvm_libc")
     # libdummyhost provides stdio symbols for llvm-libc runtimes.
